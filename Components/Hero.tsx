@@ -78,7 +78,7 @@ export default function Hero() {
                     textAlign: 'center',
                     padding: '6px 0 0',
                 }}>
-                    Indie Developer, orangnya asik kok!!!!
+                    Indie Developer, Tech Mentor, Writer
                 </p>
             </div>
 

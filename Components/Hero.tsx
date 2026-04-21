@@ -159,7 +159,7 @@ export default function Hero() {
                         lineHeight: 1.7,
                         maxWidth: 280,
                     }}>
-                        I build fast, accessible web apps. Currently open to new opportunities.
+                        I build fast, accessible web apps. Currently open to new opportunities. + gw jago
                     </p>
 
                     <div style={{

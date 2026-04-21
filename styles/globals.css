@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Special+Elite&family=Courier+Prime:wght@400;700&family=Inter:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+:root {
+  --black: #0a0a0a;
+  --white: #f5f4f0;
+  --gray: #888;
+  --border: rgba(0, 0, 0, 0.15);
+  --font-serif: 'Playfair Display', serif;
+  --font-typewriter: 'Special Elite', cursive;
+  --font-mono: 'Courier Prime', monospace;
+}
+
+html {
+  background: var(--white);
+  color: var(--black);
+}
+
+body {
+  font-family: 'Courier Prime', monospace;
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.typewriter {
+  font-family: var(--font-typewriter);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}

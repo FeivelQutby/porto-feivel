@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import SmoothScroll from '@/Components/SmoothScroll'
 import Cursor from '@/Components/Cursor'
+import Footer from '@/Components/Footer'
 
 export const metadata = {
   title: 'Feivel Qutby',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll>
           {children}
         </SmoothScroll>
+        <Footer />
       </body>
     </html>
   )

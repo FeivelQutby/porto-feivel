@@ -1,41 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Special+Elite&family=Courier+Prime:wght@400;700&family=Inter:wght@400;500&display=swap');
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  cursor: none;
-}
+  .hero-grid .divider {
+    display: none;
+  }
 
-:root {
-  --black: #0a0a0a;
-  --white: #f5f4f0;
-  --gray: #888;
-  --border: rgba(0, 0, 0, 0.15);
-  --font-serif: 'Playfair Display', serif;
-  --font-typewriter: 'Special Elite', cursive;
-  --font-mono: 'Courier Prime', monospace;
-}
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
 
-html {
-  background: var(--white);
-  color: var(--black);
-}
+  .projects-grid > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+  }
 
-body {
-  font-family: 'Courier Prime', monospace;
-  background: var(--white);
-  overflow-x: hidden;
-}
-
-.serif {
-  font-family: var(--font-serif);
-}
-
-.typewriter {
-  font-family: var(--font-typewriter);
-}
-
-.mono {
-  font-family: var(--font-mono);
+  .masthead-meta {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
 }

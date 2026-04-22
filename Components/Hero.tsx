@@ -39,16 +39,18 @@ export default function Hero() {
                 borderBottom: '3px solid #0a0a0a',
                 padding: '20px 32px 14px',
             }}>
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    fontSize: 10,
-                    fontFamily: 'var(--font-typewriter)',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: '#888',
-                    marginBottom: 8,
-                }}>
+                <div
+                    className="masthead-meta"
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        fontSize: 10,
+                        fontFamily: 'var(--font-typewriter)',
+                        letterSpacing: '0.12em',
+                        textTransform: 'uppercase',
+                        color: '#888',
+                        marginBottom: 8,
+                    }}>
                     <span>Vol. 01 · No. 001</span>
                     <span>yourname.dev</span>
                     <span>Est. 2022</span>
@@ -83,11 +85,13 @@ export default function Hero() {
             </div>
 
             {/* Hero body — paper fold */}
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1px 1fr',
-                flex: 1,
-            }}>
+            <div
+                className="hero-grid"
+                style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1px 1fr',
+                    flex: 1,
+                }}>
                 {/* Foto */}
                 <div
                     ref={leftRef}
@@ -117,7 +121,7 @@ export default function Hero() {
                 </div>
 
                 {/* Divider */}
-                <div style={{ background: 'rgba(0,0,0,0.15)' }} />
+                <div className="divider" style={{ background: 'rgba(0,0,0,0.15)' }} />
 
                 {/* Bio */}
                 <div

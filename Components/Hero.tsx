@@ -29,7 +29,7 @@ export default function Hero() {
             ref={wrapRef}
             style={{
                 perspective: '1200px',
-                minHeight: '100vh',
+                height: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
             }}
@@ -91,6 +91,7 @@ export default function Hero() {
                     display: 'grid',
                     gridTemplateColumns: '1fr 1px 1fr',
                     flex: 1,
+                    minHeight: 0,
                 }}>
                 {/* Foto */}
                 <div

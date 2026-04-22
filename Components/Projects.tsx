@@ -100,128 +100,133 @@ export default function Projects() {
             {/* Grid — 3 project cols + 1 filler col */}
             <div style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr 1fr 160px',
+                gridTemplateColumns: '1fr 200px',
                 borderBottom: '1px solid rgba(0,0,0,0.15)',
             }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    borderRight: '0.5px solid rgba(0,0,0,0.12)',
+                }}>
+                    {/* Project columns */}
+                    {projects.map((project, i) => (
+                        <div
+                            key={project.id}
+                            ref={el => { colRefs.current[i] = el }}
+                            className="project-card"
+                            style={{
+                                padding: '28px',
+                                borderRight: '0.5px solid rgba(0,0,0,0.12)',
+                                display: 'flex',
+                                flexDirection: 'column' as const,
+                                gap: 14,
+                            }}
+                        >
+                            {/* Image */}
+                            <div style={{
+                                width: '100%',
+                                aspectRatio: '16/7',
+                                background: '#e2e0da',
+                                borderRadius: 2,
+                                overflow: 'hidden',
+                                position: 'relative' as const,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}>
+                                <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.15 }}>
+                                    <line x1="33%" y1="0" x2="33%" y2="100%" stroke="#0a0a0a" strokeWidth="0.5" />
+                                    <line x1="66%" y1="0" x2="66%" y2="100%" stroke="#0a0a0a" strokeWidth="0.5" />
+                                    <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#0a0a0a" strokeWidth="0.5" />
+                                </svg>
+                                <span style={{
+                                    fontFamily: 'var(--font-typewriter)',
+                                    fontSize: 9,
+                                    letterSpacing: '0.14em',
+                                    textTransform: 'uppercase' as const,
+                                    color: '#aaa',
+                                    position: 'relative' as const,
+                                }}>
+                                    Preview
+                                </span>
+                            </div>
 
-                {/* Project columns */}
-                {projects.map((project, i) => (
-                    <div
-                        key={project.id}
-                        ref={el => { colRefs.current[i] = el }}
-                        className="project-card"
-                        style={{
-                            padding: '28px',
-                            borderRight: '0.5px solid rgba(0,0,0,0.12)',
-                            display: 'flex',
-                            flexDirection: 'column' as const,
-                            gap: 14,
-                        }}
-                    >
-                        {/* Image */}
-                        <div style={{
-                            width: '100%',
-                            aspectRatio: '16/9',
-                            background: '#e2e0da',
-                            borderRadius: 2,
-                            overflow: 'hidden',
-                            position: 'relative' as const,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}>
-                            <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.15 }}>
-                                <line x1="33%" y1="0" x2="33%" y2="100%" stroke="#0a0a0a" strokeWidth="0.5" />
-                                <line x1="66%" y1="0" x2="66%" y2="100%" stroke="#0a0a0a" strokeWidth="0.5" />
-                                <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#0a0a0a" strokeWidth="0.5" />
-                            </svg>
+                            {/* Number */}
                             <span style={{
                                 fontFamily: 'var(--font-typewriter)',
-                                fontSize: 9,
+                                fontSize: 10,
                                 letterSpacing: '0.14em',
                                 textTransform: 'uppercase' as const,
-                                color: '#aaa',
-                                position: 'relative' as const,
+                                color: '#888',
+                                borderTop: '1.5px solid #888',
+                                paddingTop: 4,
+                                display: 'inline-block',
                             }}>
-                                Preview
+                                No. {project.id}
                             </span>
-                        </div>
 
-                        {/* Number */}
-                        <span style={{
-                            fontFamily: 'var(--font-typewriter)',
-                            fontSize: 10,
-                            letterSpacing: '0.14em',
-                            textTransform: 'uppercase' as const,
-                            color: '#888',
-                            borderTop: '1.5px solid #888',
-                            paddingTop: 4,
-                            display: 'inline-block',
-                        }}>
-                            No. {project.id}
-                        </span>
-
-                        {/* Title */}
-                        <h3 style={{
-                            fontFamily: 'var(--font-serif)',
-                            fontSize: 20,
-                            fontWeight: 700,
-                            lineHeight: 1.2,
-                            color: '#0a0a0a',
-                        }}>
-                            {project.title}
-                        </h3>
-
-                        {/* Desc */}
-                        <p style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: 11,
-                            color: '#666',
-                            lineHeight: 1.7,
-                            flex: 1,
-                        }}>
-                            {project.desc}
-                        </p>
-
-                        {/* Tags + link */}
-                        <div style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            paddingTop: 12,
-                            borderTop: '0.5px solid rgba(0,0,0,0.12)',
-                        }}>
-                            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' as const }}>
-                                {project.tags.map(tag => (
-                                    <span key={tag} style={{
-                                        fontFamily: 'var(--font-typewriter)',
-                                        fontSize: 9,
-                                        letterSpacing: '0.06em',
-                                        textTransform: 'uppercase' as const,
-                                        color: '#888',
-                                        border: '0.5px solid rgba(0,0,0,0.2)',
-                                        padding: '2px 6px',
-                                        borderRadius: 2,
-                                    }}>
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                            <a href={project.link} style={{
-                                fontFamily: 'var(--font-typewriter)',
-                                fontSize: 10,
-                                letterSpacing: '0.1em',
-                                textTransform: 'uppercase' as const,
+                            {/* Title */}
+                            <h3 style={{
+                                fontFamily: 'var(--font-serif)',
+                                fontSize: 20,
+                                fontWeight: 700,
+                                lineHeight: 1.2,
                                 color: '#0a0a0a',
-                                textDecoration: 'none',
-                                borderBottom: '0.5px solid #0a0a0a',
-                                paddingBottom: 1,
                             }}>
-                                View →
-                            </a>
+                                {project.title}
+                            </h3>
+
+                            {/* Desc */}
+                            <p style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 11,
+                                color: '#666',
+                                lineHeight: 1.7,
+                                flex: 1,
+                            }}>
+                                {project.desc}
+                            </p>
+
+                            {/* Tags + link */}
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                paddingTop: 12,
+                                borderTop: '0.5px solid rgba(0,0,0,0.12)',
+                            }}>
+                                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' as const }}>
+                                    {project.tags.map(tag => (
+                                        <span key={tag} style={{
+                                            fontFamily: 'var(--font-typewriter)',
+                                            fontSize: 9,
+                                            letterSpacing: '0.06em',
+                                            textTransform: 'uppercase' as const,
+                                            color: '#888',
+                                            border: '0.5px solid rgba(0,0,0,0.2)',
+                                            padding: '2px 6px',
+                                            borderRadius: 2,
+                                        }}>
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                                <a href={project.link} style={{
+                                    fontFamily: 'var(--font-typewriter)',
+                                    fontSize: 10,
+                                    letterSpacing: '0.1em',
+                                    textTransform: 'uppercase' as const,
+                                    color: '#0a0a0a',
+                                    textDecoration: 'none',
+                                    borderBottom: '0.5px solid #0a0a0a',
+                                    paddingBottom: 1,
+                                }}>
+                                    View →
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
 
                 {/* Column filler — stack */}
                 <div style={{

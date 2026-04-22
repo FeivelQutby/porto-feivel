@@ -30,6 +30,12 @@ const projects = [
     },
 ]
 
+const stack = [
+    { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Go'] },
+    { category: 'Frameworks', items: ['Next.js', 'React', 'Node.js'] },
+    { category: 'Tools', items: ['Docker', 'PostgreSQL'] },
+]
+
 export default function Projects() {
     const sectionRef = useRef<HTMLDivElement>(null)
     const colRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -37,34 +43,34 @@ export default function Projects() {
     useEffect(() => {
         colRefs.current.forEach((col, i) => {
             if (!col) return
-            gsap.fromTo(
-                col,
-                { opacity: 0, y: 40 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: 'power3.out',
-                    delay: i * 0.12,
-                    scrollTrigger: {
-                        trigger: col,
-                        start: 'top 85%',
-                    },
-                }
-            )
 
-            // hover effect
-            const onEnter = () => gsap.to(col, { y: -4, duration: 0.3, ease: 'power2.out' })
-            const onLeave = () => gsap.to(col, { y: 0, duration: 0.3, ease: 'power2.out' })
-            col.addEventListener('mouseenter', onEnter)
-            col.addEventListener('mouseleave', onLeave)
+            gsap.set(col, { opacity: 0, y: 40 })
+
+            ScrollTrigger.create({
+                trigger: col,
+                start: 'top 85%',
+                onEnter: () => {
+                    gsap.to(col, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: 'power3.out',
+                        delay: i * 0.12,
+                    })
+                },
+                once: true,
+            })
         })
+
+        return () => {
+            ScrollTrigger.getAll().forEach(t => t.kill())
+        }
     }, [])
 
     return (
         <section ref={sectionRef} style={{ borderTop: '3px solid #0a0a0a' }}>
 
-            {/* Section header */}
+            {/* Header */}
             <div style={{
                 padding: '20px 32px 16px',
                 borderBottom: '1px solid rgba(0,0,0,0.15)',
@@ -91,25 +97,25 @@ export default function Projects() {
                 </span>
             </div>
 
-            {/* Columns */}
-            <div
-                className="projects-grid"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    borderBottom: '1px solid rgba(0,0,0,0.15)',
-                }}>
+            {/* Grid — 3 project cols + 1 filler col */}
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr 1fr 160px',
+                borderBottom: '1px solid rgba(0,0,0,0.15)',
+            }}>
+
+                {/* Project columns */}
                 {projects.map((project, i) => (
                     <div
                         key={project.id}
                         ref={el => { colRefs.current[i] = el }}
+                        className="project-card"
                         style={{
                             padding: '28px',
-                            borderRight: i < projects.length - 1 ? '1px solid rgba(0,0,0,0.15)' : 'none',
+                            borderRight: '0.5px solid rgba(0,0,0,0.12)',
                             display: 'flex',
                             flexDirection: 'column' as const,
                             gap: 14,
-                            cursor: 'none',
                         }}
                     >
                         {/* Image */}
@@ -124,7 +130,6 @@ export default function Projects() {
                             alignItems: 'center',
                             justifyContent: 'center',
                         }}>
-                            {/* Grid lines biar keliatan kayak layout koran */}
                             <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, opacity: 0.15 }}>
                                 <line x1="33%" y1="0" x2="33%" y2="100%" stroke="#0a0a0a" strokeWidth="0.5" />
                                 <line x1="66%" y1="0" x2="66%" y2="100%" stroke="#0a0a0a" strokeWidth="0.5" />
@@ -217,6 +222,48 @@ export default function Projects() {
                         </div>
                     </div>
                 ))}
+
+                {/* Column filler — stack */}
+                <div style={{
+                    padding: '20px 16px',
+                    display: 'flex',
+                    flexDirection: 'column' as const,
+                    gap: 0,
+                    borderLeft: '0.5px solid rgba(0,0,0,0.12)',
+                }}>
+                    {stack.map((group, gi) => (
+                        <div key={group.category}>
+                            <span style={{
+                                fontFamily: 'var(--font-typewriter)',
+                                fontSize: 9,
+                                letterSpacing: '0.14em',
+                                textTransform: 'uppercase' as const,
+                                color: '#888',
+                                borderTop: gi === 0 ? '2px solid #888' : '2px solid #888',
+                                paddingTop: 3,
+                                marginTop: gi === 0 ? 0 : 16,
+                                marginBottom: 10,
+                                display: 'block',
+                            }}>
+                                {group.category}
+                            </span>
+                            {group.items.map(item => (
+                                <span key={item} style={{
+                                    fontFamily: 'var(--font-typewriter)',
+                                    fontSize: 11,
+                                    color: '#0a0a0a',
+                                    padding: '7px 0',
+                                    borderBottom: '0.5px solid rgba(0,0,0,0.12)',
+                                    display: 'block',
+                                    lineHeight: 1,
+                                }}>
+                                    {item}
+                                </span>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+
             </div>
 
         </section>

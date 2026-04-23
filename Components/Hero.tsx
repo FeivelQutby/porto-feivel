@@ -121,6 +121,7 @@ export default function Hero() {
                     textTransform: 'uppercase',
                     color: '#888',
                 }}>
+                    <span></span>
                     <span>Page 1 of 1</span>
                 </div>
             </div>
@@ -139,12 +140,10 @@ export default function Hero() {
                 <div
                     style={{
                         background: '#e8e6e0',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        padding: '48px 40px',
                         position: 'relative',
-                    }}>
+                        minHeight: 300,
+                    }}
+                >
                     <span style={{
                         position: 'absolute',
                         bottom: 16,
@@ -154,24 +153,29 @@ export default function Hero() {
                         letterSpacing: '0.1em',
                         textTransform: 'uppercase',
                         color: '#aaa',
+                        zIndex: 1,
                     }}>
-                        Fig. 01 — Portrait
+                        Fig. 01 — Profile
                     </span>
                     <div style={{
-                        width: 160,
-                        height: 160,
-                        borderRadius: '50%',
-                        border: '1px solid #aaa',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontFamily: 'var(--font-typewriter)',
-                        color: '#aaa',
-                        fontSize: 10,
-                        letterSpacing: '0.1em',
-                        textTransform: 'uppercase',
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        overflow: 'hidden',
                     }}>
-                        Photo
+                        <img
+                            src="/profile.jpeg"
+                            alt="Feivel Qutby"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                objectPosition: 'center 40%',
+                                filter: 'grayscale(30%) sepia(70%) contrast(1.2) brightness(0.9) saturate(0.8)',
+                            }}
+                        />
                     </div>
                 </div>
 

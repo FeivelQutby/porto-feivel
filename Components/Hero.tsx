@@ -4,198 +4,270 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
 export default function Hero() {
-    const wrapRef = useRef<HTMLDivElement>(null)
-    const leftRef = useRef<HTMLDivElement>(null)
-    const rightRef = useRef<HTMLDivElement>(null)
+    const breakingRef = useRef<HTMLDivElement>(null)
+    const headlineRef = useRef<HTMLDivElement>(null)
+    const bodyRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        const tl = gsap.timeline({ delay: 0.2 })
+        const tl = gsap.timeline({ delay: 0.1 })
 
-        // paper fold: kedua panel terbuka dari tengah
         tl.fromTo(
-            leftRef.current,
-            { rotateY: -90, transformOrigin: 'right center', opacity: 0 },
-            { rotateY: 0, opacity: 1, duration: 1, ease: 'power3.out' }
-        ).fromTo(
-            rightRef.current,
-            { rotateY: 90, transformOrigin: 'left center', opacity: 0 },
-            { rotateY: 0, opacity: 1, duration: 1, ease: 'power3.out' },
-            '<'
+            breakingRef.current,
+            { opacity: 0, y: -10 },
+            { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
         )
+            .fromTo(
+                headlineRef.current,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+                '-=0.2'
+            )
+            .fromTo(
+                bodyRef.current,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+                '-=0.3'
+            )
     }, [])
 
     return (
-        <section
-            ref={wrapRef}
-            style={{
-                perspective: '1200px',
-                height: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
-            }}
-        >
-            {/* Masthead */}
+        <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+
+            {/* Top meta bar */}
             <div style={{
-                borderBottom: '3px solid #0a0a0a',
-                padding: '20px 32px 14px',
+                padding: '12px 32px',
+                borderBottom: '1px solid rgba(0,0,0,0.15)',
+                display: 'flex',
+                justifyContent: 'space-between',
+                fontFamily: 'var(--font-typewriter)',
+                fontSize: 10,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#888',
             }}>
-                <div
-                    className="masthead-meta"
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        fontSize: 10,
-                        fontFamily: 'var(--font-typewriter)',
-                        letterSpacing: '0.12em',
-                        textTransform: 'uppercase',
-                        color: '#888',
-                        marginBottom: 8,
-                    }}>
-                    <span>Vol. 01 · No. 001</span>
-                    <span>yourname.dev</span>
-                    <span>Est. 2022</span>
-                </div>
+                <span>Vol. 1 No. 1</span>
+                <span>feivelqutby.dev</span>
+                <span>Est. 2022</span>
+            </div>
 
-                <hr style={{ border: 'none', borderTop: '1px solid #0a0a0a', marginBottom: 8 }} />
-
-                <h1 className="serif" style={{
-                    fontSize: 'clamp(40px, 8vw, 80px)',
-                    fontWeight: 900,
-                    textAlign: 'center',
-                    lineHeight: 1,
-                    letterSpacing: '-2px',
-                    marginBottom: 8,
+            {/* Breaking news bar */}
+            <div
+                ref={breakingRef}
+                style={{
+                    background: '#0a0a0a',
+                    padding: '10px 32px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 16,
+                }}
+            >
+                <span style={{
+                    fontFamily: 'var(--font-typewriter)',
+                    fontSize: 10,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: '#f5f4f0',
+                    border: '1px solid #f5f4f0',
+                    padding: '3px 8px',
+                    whiteSpace: 'nowrap',
                 }}>
-                    FEIVEL QUTBY
+                    Breaking news
+                </span>
+                <span style={{
+                    fontFamily: 'var(--font-typewriter)',
+                    fontSize: 10,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: '#f5f4f0',
+                    opacity: 0.7,
+                }}>
+                    Wednesday, April 22, 2026 · Jakarta, Indonesia
+                </span>
+            </div>
+
+            {/* Masthead — headline */}
+            <div
+                ref={headlineRef}
+                style={{
+                    padding: '24px 32px 20px',
+                    borderBottom: '3px solid #0a0a0a',
+                }}
+            >
+                <hr style={{ border: 'none', borderTop: '1px solid #0a0a0a', marginBottom: 12 }} />
+
+                <h1 style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: 'clamp(40px, 7vw, 88px)',
+                    fontWeight: 900,
+                    lineHeight: 0.95,
+                    letterSpacing: '-3px',
+                    color: '#0a0a0a',
+                    marginBottom: 12,
+                }}>
+                    Tech Mentor.<br />
+                    Developer.<br />
+                    Based in Jakarta.
                 </h1>
 
                 <hr style={{ border: 'none', borderTop: '1px solid #0a0a0a', marginBottom: 0 }} />
 
-                <p style={{
-                    fontSize: 10,
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    paddingTop: 6,
                     fontFamily: 'var(--font-typewriter)',
-                    letterSpacing: '0.14em',
+                    fontSize: 10,
+                    letterSpacing: '0.12em',
                     textTransform: 'uppercase',
                     color: '#888',
-                    textAlign: 'center',
-                    padding: '6px 0 0',
                 }}>
-                    Indie Developer, Tech Mentor, Writer
-                </p>
+                    <span>Page 1 of 1</span>
+                </div>
             </div>
 
-            {/* Hero body — paper fold */}
+            {/* Hero body */}
             <div
-                className="hero-grid"
+                ref={bodyRef}
                 style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr 1px 1fr',
                     flex: 1,
                     minHeight: 0,
                 }}>
+
                 {/* Foto */}
                 <div
-                    ref={leftRef}
                     style={{
                         background: '#e8e6e0',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        padding: '60px 40px',
-                    }}
-                >
+                        padding: '48px 40px',
+                        position: 'relative',
+                    }}>
+                    <span style={{
+                        position: 'absolute',
+                        bottom: 16,
+                        left: 20,
+                        fontFamily: 'var(--font-typewriter)',
+                        fontSize: 9,
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        color: '#aaa',
+                    }}>
+                        Fig. 01 — Portrait
+                    </span>
                     <div style={{
-                        width: 120,
-                        height: 120,
+                        width: 160,
+                        height: 160,
                         borderRadius: '50%',
                         border: '1px solid #aaa',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        fontFamily: 'var(--font-typewriter)',
                         color: '#aaa',
-                        fontSize: 11,
+                        fontSize: 10,
                         letterSpacing: '0.1em',
-                        textTransform: 'uppercase' as const,
+                        textTransform: 'uppercase',
                     }}>
                         Photo
                     </div>
                 </div>
 
                 {/* Divider */}
-                <div className="divider" style={{ background: 'rgba(0,0,0,0.15)' }} />
+                <div style={{ background: 'rgba(0,0,0,0.15)' }} />
 
                 {/* Bio */}
                 <div
-                    ref={rightRef}
+                    ref={bodyRef}
                     style={{
-                        padding: '60px 36px',
+                        padding: '48px 40px',
                         display: 'flex',
-                        flexDirection: 'column' as const,
+                        flexDirection: 'column',
                         justifyContent: 'center',
-                        gap: 20,
+                        gap: 24,
                     }}
                 >
                     <span style={{
-                        fontSize: 10,
                         fontFamily: 'var(--font-typewriter)',
+                        fontSize: 10,
                         letterSpacing: '0.14em',
-                        textTransform: 'uppercase' as const,
+                        textTransform: 'uppercase',
                         color: '#888',
                         borderTop: '2px solid #888',
-                        paddingTop: 3,
+                        paddingTop: 4,
                         display: 'inline-block',
                     }}>
                         About
                     </span>
 
-                    <h2 className="serif" style={{
-                        fontSize: 'clamp(22px, 3vw, 30px)',
+                    <h2 style={{
+                        fontFamily: 'var(--font-serif)',
+                        fontSize: 'clamp(22px, 2.5vw, 32px)',
                         fontWeight: 700,
                         lineHeight: 1.2,
+                        color: '#0a0a0a',
                     }}>
-                        Tech Mentor.<br />
-                        Developer.<br />
-                        Based in Jakarta.
+                        Feivel Qutby
                     </h2>
 
-                    <p style={{
-                        fontSize: 13,
-                        color: '#555',
+                    <blockquote style={{
+                        borderLeft: '3px solid #0a0a0a',
+                        paddingLeft: 16,
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: 12,
+                        fontStyle: 'italic',
+                        color: '#444',
                         lineHeight: 1.7,
-                        maxWidth: 280,
+                        margin: 0,
                     }}>
-                        I build fast, accessible web apps. Currently open to new opportunities. + gw jago banget + pler
-                    </p>
+                        I build clean, fast web apps.
+                    </blockquote>
 
                     <div style={{
                         display: 'flex',
                         gap: 20,
-                        fontSize: 11,
-                        letterSpacing: '0.1em',
-                        textTransform: 'uppercase' as const,
                         fontFamily: 'var(--font-typewriter)',
-                        paddingTop: 12,
+                        fontSize: 10,
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        paddingTop: 16,
                         borderTop: '0.5px solid rgba(0,0,0,0.15)',
                     }}>
-                        <a href="https://github.com" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>Github</a>
-                        <a href="https://linkedin.com" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>LinkedIn</a>
-                        <a href="mailto:you@email.com" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>Email</a>
+                        <a href="https://github.com/FeivelQutby" target="_blank" rel="noreferrer" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>Github</a>
+                        <a href="https://www.linkedin.com/in/feivel-qutby/" target="_blank" rel="noreferrer" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>LinkedIn</a>
+                        <a href="mailto:feivelint@gmail.com" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>Email</a>
                     </div>
                 </div>
             </div>
 
-
+            {/* Bottom bar */}
             <div style={{
-                borderTop: '0.5px solid rgba(0,0,0,0.15)',
-                fontSize: 10,
-                fontFamily: 'var(--font-typewriter)',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: '#aaa',
-                textAlign: 'center',
-                padding: '10px 0',
+                borderTop: '1px solid rgba(0,0,0,0.15)',
+                padding: '8px 32px',
+                display: 'flex',
+                justifyContent: 'space-between',
             }}>
+                <span style={{
+                    fontFamily: 'var(--font-typewriter)',
+                    fontSize: 10,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: '#aaa',
+                }}>
+                </span>
+                <span style={{
+                    fontFamily: 'var(--font-typewriter)',
+                    fontSize: 10,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: '#aaa',
+                }}>
+                    ↓ scroll for work
+                </span>
             </div>
+
         </section>
     )
 }

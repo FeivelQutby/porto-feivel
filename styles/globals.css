@@ -6,9 +6,31 @@
   box-sizing: border-box;
 }
 
+body {
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  background-image: url('/paper.jpg');
+  background-repeat: repeat;
+  background-size: 600px 600px;
+  mix-blend-mode: multiply;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
 :root {
   --black: #0a0a0a;
-  --white: #f5f4f0;
+  --white: #ffffff;
   --gray: #888;
   --border: rgba(0, 0, 0, 0.15);
   --font-serif: 'Playfair Display', serif;

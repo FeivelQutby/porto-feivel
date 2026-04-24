@@ -100,178 +100,178 @@ export default function Hero() {
                     fontSize: 'clamp(40px, 7vw, 88px)',
                     fontWeight: 900,
                     lineHeight: 0.95,
-                    letterSpacing: '-3px',
+                    letterSpacing: '0px',
                     color: '#0a0a0a',
                     marginBottom: 12,
                 }}>
-                    Tech Mentor.<br />
-                    Developer.<br />
-                    Based in Jakarta.
-                </h1>
+                TECH MENTOR.<br />
+                DEVELOPER.<br />
+                BASED IN JAKARTA.
+            </h1>
 
-                <hr style={{ border: 'none', borderTop: '1px solid #0a0a0a', marginBottom: 0 }} />
+            <hr style={{ border: 'none', borderTop: '1px solid #0a0a0a', marginBottom: 0 }} />
 
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    paddingTop: 6,
-                    fontFamily: 'var(--font-typewriter)',
-                    fontSize: 10,
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: '#888',
-                }}>
-                    <span></span>
-                    <span>Page 1 of 1</span>
-                </div>
-            </div>
-
-            {/* Hero body */}
-            <div
-                ref={bodyRef}
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1px 1fr',
-                    flex: 1,
-                    minHeight: 0,
-                }}>
-
-                {/* Foto */}
-                <div
-                    style={{
-                        background: '#e8e6e0',
-                        position: 'relative',
-                        minHeight: 300,
-                    }}
-                >
-                    <span style={{
-                        position: 'absolute',
-                        bottom: 16,
-                        left: 20,
-                        fontFamily: 'var(--font-typewriter)',
-                        fontSize: 9,
-                        letterSpacing: '0.1em',
-                        textTransform: 'uppercase',
-                        color: '#aaa',
-                        zIndex: 1,
-                    }}>
-                        Fig. 01 — Profile
-                    </span>
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        overflow: 'hidden',
-                    }}>
-                        <img
-                            src="/profile.jpeg"
-                            alt="Feivel Qutby"
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                objectPosition: 'center 40%',
-                                filter: 'grayscale(30%) sepia(70%) contrast(1.2) brightness(0.9) saturate(0.8)',
-                            }}
-                        />
-                    </div>
-                </div>
-
-                {/* Divider */}
-                <div style={{ background: 'rgba(0,0,0,0.15)' }} />
-
-                {/* Bio */}
-                <div
-                    ref={bodyRef}
-                    style={{
-                        padding: '48px 40px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        gap: 24,
-                    }}
-                >
-                    <span style={{
-                        fontFamily: 'var(--font-typewriter)',
-                        fontSize: 10,
-                        letterSpacing: '0.14em',
-                        textTransform: 'uppercase',
-                        color: '#888',
-                        borderTop: '2px solid #888',
-                        paddingTop: 4,
-                        display: 'inline-block',
-                    }}>
-                        About
-                    </span>
-
-                    <h2 style={{
-                        fontFamily: 'var(--font-serif)',
-                        fontSize: 'clamp(22px, 2.5vw, 32px)',
-                        fontWeight: 700,
-                        lineHeight: 1.2,
-                        color: '#0a0a0a',
-                    }}>
-                        Feivel Qutby
-                    </h2>
-
-                    <blockquote style={{
-                        borderLeft: '3px solid #0a0a0a',
-                        paddingLeft: 16,
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 12,
-                        fontStyle: 'italic',
-                        color: '#444',
-                        lineHeight: 1.7,
-                        margin: 0,
-                    }}>
-                        I build clean, fast web apps.
-                    </blockquote>
-
-                    <div style={{
-                        display: 'flex',
-                        gap: 20,
-                        fontFamily: 'var(--font-typewriter)',
-                        fontSize: 10,
-                        letterSpacing: '0.1em',
-                        textTransform: 'uppercase',
-                        paddingTop: 16,
-                        borderTop: '0.5px solid rgba(0,0,0,0.15)',
-                    }}>
-                        <a href="https://github.com/FeivelQutby" target="_blank" rel="noreferrer" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>Github</a>
-                        <a href="https://www.linkedin.com/in/feivel-qutby/" target="_blank" rel="noreferrer" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>LinkedIn</a>
-                        <a href="mailto:feivelint@gmail.com" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>Email</a>
-                    </div>
-                </div>
-            </div>
-
-            {/* Bottom bar */}
             <div style={{
-                borderTop: '1px solid rgba(0,0,0,0.15)',
-                padding: '8px 32px',
                 display: 'flex',
                 justifyContent: 'space-between',
+                paddingTop: 6,
+                fontFamily: 'var(--font-typewriter)',
+                fontSize: 10,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#888',
             }}>
-                <span style={{
-                    fontFamily: 'var(--font-typewriter)',
-                    fontSize: 10,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: '#aaa',
-                }}>
-                </span>
-                <span style={{
-                    fontFamily: 'var(--font-typewriter)',
-                    fontSize: 10,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: '#aaa',
-                }}>
-                    ↓ scroll for work
-                </span>
+                <span></span>
+                <span>Page 1 of 1</span>
             </div>
+        </div>
 
-        </section>
+            {/* Hero body */ }
+    <div
+        ref={bodyRef}
+        style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1px 1fr',
+            flex: 1,
+            minHeight: 0,
+        }}>
+
+        {/* Foto */}
+        <div
+            style={{
+                background: '#e8e6e0',
+                position: 'relative',
+                minHeight: 300,
+            }}
+        >
+            <span style={{
+                position: 'absolute',
+                bottom: 16,
+                left: 20,
+                fontFamily: 'var(--font-typewriter)',
+                fontSize: 9,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: '#aaa',
+                zIndex: 1,
+            }}>
+                Fig. 01 — Profile
+            </span>
+            <div style={{
+                width: '100%',
+                height: '100%',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                overflow: 'hidden',
+            }}>
+                <img
+                    src="/profile.jpeg"
+                    alt="Feivel Qutby"
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center 40%',
+                        filter: 'grayscale(90%) sepia(35%) contrast(1.2) brightness(0.8)',
+                    }}
+                />
+            </div>
+        </div>
+
+        {/* Divider */}
+        <div style={{ background: 'rgba(0,0,0,0.15)' }} />
+
+        {/* Bio */}
+        <div
+            ref={bodyRef}
+            style={{
+                padding: '48px 40px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                gap: 24,
+            }}
+        >
+            <span style={{
+                fontFamily: 'var(--font-typewriter)',
+                fontSize: 10,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: '#888',
+                borderTop: '2px solid #888',
+                paddingTop: 4,
+                display: 'inline-block',
+            }}>
+                About
+            </span>
+
+            <h2 style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: 'clamp(22px, 2.5vw, 32px)',
+                fontWeight: 700,
+                lineHeight: 1.2,
+                color: '#0a0a0a',
+            }}>
+                Feivel Qutby
+            </h2>
+
+            <blockquote style={{
+                borderLeft: '3px solid #0a0a0a',
+                paddingLeft: 16,
+                fontFamily: 'var(--font-mono)',
+                fontSize: 12,
+                fontStyle: 'italic',
+                color: '#444',
+                lineHeight: 1.7,
+                margin: 0,
+            }}>
+                I build clean, fast web apps.
+            </blockquote>
+
+            <div style={{
+                display: 'flex',
+                gap: 20,
+                fontFamily: 'var(--font-typewriter)',
+                fontSize: 10,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                paddingTop: 16,
+                borderTop: '0.5px solid rgba(0,0,0,0.15)',
+            }}>
+                <a href="https://github.com/FeivelQutby" target="_blank" rel="noreferrer" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>Github</a>
+                <a href="https://www.linkedin.com/in/feivel-qutby/" target="_blank" rel="noreferrer" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>LinkedIn</a>
+                <a href="mailto:feivelint@gmail.com" style={{ color: '#555', textDecoration: 'none', borderBottom: '0.5px solid #aaa', paddingBottom: 1 }}>Email</a>
+            </div>
+        </div>
+    </div>
+
+    {/* Bottom bar */ }
+    <div style={{
+        borderTop: '1px solid rgba(0,0,0,0.15)',
+        padding: '8px 32px',
+        display: 'flex',
+        justifyContent: 'space-between',
+    }}>
+        <span style={{
+            fontFamily: 'var(--font-typewriter)',
+            fontSize: 10,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#aaa',
+        }}>
+        </span>
+        <span style={{
+            fontFamily: 'var(--font-typewriter)',
+            fontSize: 10,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#aaa',
+        }}>
+            ↓ scroll for work
+        </span>
+    </div>
+
+        </section >
     )
 }

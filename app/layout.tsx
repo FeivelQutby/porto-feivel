@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import SmoothScroll from '@/Components/SmoothScroll'
+// import SmoothScroll from '@/Components/SmoothScroll'
 // import Cursor from '@/Components/Cursor'
 
 export const metadata = {
@@ -12,10 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         {/* <Cursor /> */}
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
-        
+        {children}
       </body>
     </html>
   )

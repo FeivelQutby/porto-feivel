@@ -4,7 +4,7 @@ export default function Footer() {
     const year = new Date().getFullYear()
 
     return (
-        <footer style={{
+        <footer id="contact" className="snap-section" style={{
             borderTop: '3px solid #0a0a0a',
             padding: '20px 32px',
             display: 'flex',
@@ -43,7 +43,7 @@ export default function Footer() {
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
             }}>
-                <a href="https://github.com" target="_blank" rel="noreferrer" style={{
+                <a href="https://github.com/FeivelQutby" target="_blank" rel="noreferrer" style={{
                     color: '#888',
                     textDecoration: 'none',
                     borderBottom: '0.5px solid transparent',
@@ -61,7 +61,7 @@ export default function Footer() {
                 >
                     Github
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{
+                <a href="https://www.linkedin.com/in/feivel-qutby/" target="_blank" rel="noreferrer" style={{
                     color: '#888',
                     textDecoration: 'none',
                     borderBottom: '0.5px solid transparent',
@@ -79,7 +79,7 @@ export default function Footer() {
                 >
                     LinkedIn
                 </a>
-                <a href="mailto:you@email.com" style={{
+                <a href="mailto:feivelint@gmail.com" style={{
                     color: '#888',
                     textDecoration: 'none',
                     borderBottom: '0.5px solid transparent',

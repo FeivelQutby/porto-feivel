@@ -85,19 +85,6 @@ export default function Hero() {
             >
                 <hr style={{ border: 'none', borderTop: '1px solid #0a0a0a', marginBottom: 12 }} />
 
-                {/* Byline */}
-                <span style={{
-                    display: 'block',
-                    fontFamily: 'var(--font-typewriter)',
-                    fontSize: 10,
-                    letterSpacing: '0.14em',
-                    textTransform: 'uppercase',
-                    color: '#888',
-                    marginBottom: 12,
-                }}>
-                    By Feivel Qutby — Staff Correspondent
-                </span>
-
                 <h1 style={{
                     fontFamily: 'var(--font-serif)',
                     fontSize: 'clamp(40px, 7vw, 64px)',
@@ -107,13 +94,13 @@ export default function Hero() {
                     color: '#0a0a0a',
                     marginBottom: 16,
                 }}>
-                    TECH MENTOR.<br />
                     DEVELOPER.<br />
+                    TECH MENTOR.<br />
                     BASED IN JAKARTA.
                 </h1>
 
                 {/* Deck — the subhead that bridges headline to bio */}
-                <p style={{
+                {/* <p style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: 'clamp(13px, 1.5vw, 12px)',
                     color: '#444',
@@ -123,7 +110,7 @@ export default function Hero() {
                 }}>
                     Reporting live from the intersection of code and design — turning
                     ambiguous problems into interfaces people actually enjoy using.
-                </p>
+                </p> */}
 
                 <hr style={{ border: 'none', borderTop: '1px solid #0a0a0a', marginBottom: 0 }} />
 
@@ -157,7 +144,6 @@ export default function Hero() {
                     style={{
                         background: '#e8e6e0',
                         position: 'relative',
-                        minHeight: 300,
                     }}
                 >
                     <span style={{
@@ -178,11 +164,11 @@ export default function Hero() {
                         height: '100%',
                         position: 'absolute',
                         top: 0,
-                        left: 0,
+                        left: 10,
                         overflow: 'hidden',
                     }}>
                         <img
-                            src="/profile.jpeg"
+                            src="/ppkoran.jpeg"
                             alt="Profile Image"
                             style={{
                                 width: '100%',
@@ -241,7 +227,7 @@ export default function Hero() {
                         lineHeight: 1.7,
                         margin: 0,
                     }}>
-                        I build clean, fast web apps.
+                        Every project taught me something I didn't know I needed.
                     </blockquote>
 
                     <a href="/resume.pdf" target="_blank" rel="noreferrer" className="gazette-btn">

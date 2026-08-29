@@ -1,102 +1,72 @@
 'use client'
 
+import { projects, stack, ads, getSectionId } from './Projects'
+
 export default function Footer() {
     const year = new Date().getFullYear()
+    const totalPages = projects.length + 2 // Hero + each project + this page
+    const lastProject = projects[projects.length - 1]
+    const lastProjectHref = `#${getSectionId(projects.length - 1)}`
 
     return (
-        <footer id="contact" className="snap-section" style={{
-            borderTop: '3px solid #0a0a0a',
-            padding: '20px 32px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-        }}>
+        <footer id="contact" className="snap-section footer-page">
 
-            {/* Kiri — nama */}
-            <span style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: 18,
-                fontWeight: 900,
-                letterSpacing: '-0.5px',
-                color: '#0a0a0a',
-            }}>
-                Feivel Qutby
-            </span>
+            {/* Top bar — continues the running page count from Hero/Work */}
+            <div className="footer-topbar">
+                <span>Classifieds</span>
+                <span>Page {totalPages} of {totalPages}</span>
+            </div>
 
-            {/* Tengah — copyright */}
-            <span style={{
-                fontFamily: 'var(--font-typewriter)',
-                fontSize: 10,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: '#888',
-            }}>
-                © {year} · All rights reserved
-            </span>
+            {/* Header */}
+            <div className="footer-header">
+                <h2 className="footer-title">The Back Page</h2>
+                <span className="footer-subhead">Tech stack, services, and how to reach the desk.</span>
+            </div>
 
-            {/* Kanan — links */}
-            <div style={{
-                display: 'flex',
-                gap: 20,
-                fontFamily: 'var(--font-typewriter)',
-                fontSize: 10,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-            }}>
-                <a href="https://github.com/FeivelQutby" target="_blank" rel="noreferrer" style={{
-                    color: '#888',
-                    textDecoration: 'none',
-                    borderBottom: '0.5px solid transparent',
-                    paddingBottom: 1,
-                    transition: 'color 0.2s, border-color 0.2s',
-                }}
-                    onMouseEnter={e => {
-                        (e.target as HTMLElement).style.color = '#0a0a0a';
-                        (e.target as HTMLElement).style.borderBottomColor = '#0a0a0a'
-                    }}
-                    onMouseLeave={e => {
-                        (e.target as HTMLElement).style.color = '#888';
-                        (e.target as HTMLElement).style.borderBottomColor = 'transparent'
-                    }}
-                >
-                    Github
+            {/* Stack + ads */}
+            <div className="footer-main">
+                <div className="footer-stack">
+                    {stack.map(group => (
+                        <div key={group.category} className="footer-stack-group">
+                            <span className="footer-stack-label">{group.category}</span>
+                            <div className="footer-stack-items">
+                                {group.items.map(item => (
+                                    <span key={item} className="footer-stack-item">{item}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="footer-ads">
+                    {ads.map((ad, i) => (
+                        <a key={i} href={ad.href} className="footer-ad">
+                            <span className="footer-ad-label">{ad.label}</span>
+                            <span className="footer-ad-headline">{ad.headline}</span>
+                            <span className="footer-ad-body">{ad.body}</span>
+                            <span className="footer-ad-cta">{ad.cta}</span>
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+            {/* Back to the last project — closes the Prev/Next chain */}
+            <div className="work-nav footer-nav">
+                <a href={lastProjectHref} className="work-nav-link work-nav-prev">
+                    ◀ Prev: {lastProject.title}
                 </a>
-                <a href="https://www.linkedin.com/in/feivel-qutby/" target="_blank" rel="noreferrer" style={{
-                    color: '#888',
-                    textDecoration: 'none',
-                    borderBottom: '0.5px solid transparent',
-                    paddingBottom: 1,
-                    transition: 'color 0.2s, border-color 0.2s',
-                }}
-                    onMouseEnter={e => {
-                        (e.target as HTMLElement).style.color = '#0a0a0a';
-                        (e.target as HTMLElement).style.borderBottomColor = '#0a0a0a'
-                    }}
-                    onMouseLeave={e => {
-                        (e.target as HTMLElement).style.color = '#888';
-                        (e.target as HTMLElement).style.borderBottomColor = 'transparent'
-                    }}
-                >
-                    LinkedIn
-                </a>
-                <a href="mailto:feivelint@gmail.com" style={{
-                    color: '#888',
-                    textDecoration: 'none',
-                    borderBottom: '0.5px solid transparent',
-                    paddingBottom: 1,
-                    transition: 'color 0.2s, border-color 0.2s',
-                }}
-                    onMouseEnter={e => {
-                        (e.target as HTMLElement).style.color = '#0a0a0a';
-                        (e.target as HTMLElement).style.borderBottomColor = '#0a0a0a'
-                    }}
-                    onMouseLeave={e => {
-                        (e.target as HTMLElement).style.color = '#888';
-                        (e.target as HTMLElement).style.borderBottomColor = 'transparent'
-                    }}
-                >
-                    Email
-                </a>
+                <span></span>
+            </div>
+
+            {/* Closing bar — name, copyright, real social links */}
+            <div className="footer-bottombar">
+                <span className="footer-name">Feivel Qutby</span>
+                <span className="footer-copyright">© {year} · All rights reserved</span>
+                <div className="footer-social">
+                    <a href="https://github.com/FeivelQutby" target="_blank" rel="noreferrer">Github</a>
+                    <a href="https://www.linkedin.com/in/feivel-qutby/" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a href="mailto:feivelint@gmail.com">Email</a>
+                </div>
             </div>
 
         </footer>

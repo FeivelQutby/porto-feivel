@@ -62,6 +62,8 @@ export const stack = [
     { category: 'Tools', items: ['VS Code', 'Git'] },
 ]
 
+
+
 export const ads = [
     {
         label: 'Notice',
@@ -89,12 +91,12 @@ export const ads = [
 // The first project keeps id="work" so the Hero's "Selected Work →"
 // teaser link still resolves — every project after it gets its own
 // #project-XX anchor for direct linking and Prev/Next navigation.
-function getSectionId(index: number) {
+export function getSectionId(index: number) {
     return index === 0 ? 'work' : `project-${projects[index].id}`
 }
 
 export default function Projects() {
-    const pageRefs = useRef<(HTMLDivElement | null)[]>([])
+    const pageRefs = useRef<(HTMLElement | null)[]>([])
 
     useEffect(() => {
         pageRefs.current.forEach((page) => {

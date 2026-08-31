@@ -127,7 +127,7 @@ html {
 .gazette-btn {
   display: inline-block;
   align-self: flex-start;
-  font-family: var(--font-typewriter);
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
